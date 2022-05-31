@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jose_test</title>
+    <link rel="stylesheet" href="./tailwind.css">
+ 
+</head>
+<body >
+    <div class="bg-blue-500 flex p-5 w-full">
+       
+        <div class="mx-auto">
+            <p class="font-bold text-7xl text-white text-center mb-4 ">division  checker</p>
+            <div class="px-2 py-3 bg-green-500 focus-within:outline-none w-full sm:w-96 flex rounded">
+    
+                <label for=""  class=" py-3 w-full  text-2xl text-center">divide number</label>
+                <input type="number"  class="p-1 mt-4 bg-transparent w-full sm:w-auto border-b-2  outline-none"  required id="divide-number">
+            </div>
+            <div class="px-2 py-3 w-full sm:w-96 bg-green-500 mt-5 flex rounded">
+    
+                <label for="" class="px-2 py-3 text-2xl w-full  text-center">by number</label>
+                <input type="number" class="p-1 mt-4 mx-auto bg-transparent  border-b-2  outline-none sm:w-auto w-full" required  name="" id="by-number">
+            </div>
+            <div class="px-2  py-3 w-full sm:w-96 bg-green-500 mt-5 flex rounded">
+    
+                <label for="" class="px-2 py-4 text-2xl w-full text-center">result number  </label>
+                <input type="number"  class="p-1 mt-4 bg-transparent  border-b-2 sm:w-auto w-full outline-none" required  id="result">
+            </div>
+            
+            <button onclick="blank()" class="py-3 sm:w-auto w-full text-lg mt-5 text-white drop-shadow rounded shadow font-semibold px-2 bg-yellow-400 rounded">click here for result</button>
+            <div class="flex mt-4">
+
+                <p class="bg-green-500 text-white font-extrabold px-2 py-3 text-lg sm:text-2xl rounded hidden" id="checking-right">answer is right</p>
+                <p class="bg-red-500 text-white font-extrabold px-2 py-3 ml-5 text-lg sm:text-2xl rounded hidden" id="checking-wrong">answer is wrong</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var right=document.getElementById('checking-right');
+var wrong=document.getElementById('checking-wrong')
+     
+   function triger(){
+    var divide_number=document.getElementById("divide-number").value;
+        var divide_by=document.getElementById("by-number").value;
+        var divide_result=document.getElementById("result").value;
+        var checking=divide_number/divide_by;
+        var rightaudio=new Audio('right.mp3');
+        var wrongaudio=new Audio('wrong.mp3');
+        if(divide_result==checking){
+            console.log("answer is correct");
+            right.classList.remove('hidden');
+            wrong.classList.add('hidden');
+            rightaudio.play()
+        }
+        else{
+            console.log("answer is wrong");
+            right.classList.add('hidden');
+            wrong.classList.remove('hidden');
+            wrongaudio.play();
+        }
+    }
+    function  blank(){
+        var divide_number=document.getElementById("divide-number").value;
+        var divide_by=document.getElementById("by-number").value;
+        var divide_result=document.getElementById("result").value;
+if(divide_number==null || divide_number==""){
+alert('enter the divide-number');
+}
+else if(divide_by==null || divide_by==""){
+alert('enter the  divide-by');
+}
+else if(divide_result==null || divide_result==""){
+alert('enter the divide_result ');
+}
+else{
+    triger()
+}
+    }
+</script>
+</html>
