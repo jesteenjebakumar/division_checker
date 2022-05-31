@@ -1,2 +1,2 @@
 # division_checker
-it checks the division app
+it checks the division is right are not
